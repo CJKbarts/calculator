@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header */
+
+/* Main */
+
+.display{
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    height: 75px;
+    width: 400px;
+    font-size: larger;
+}
+
+.buttons{
+    display: flex;
+}
+
+.grid, .row{
+    display: flex;
+}
+
+.digitButtons{
+    flex-direction: column;
+    width: 300px;
+    height: 400px;
+}
+
+
+.tools, .operatorButtons{
+    flex-direction: column;
+    width: 100px;
+}
+
+button{
+    width: 100px;
+    height: 100px;
+    font-size: large;
+}
+
+/* Footer */
