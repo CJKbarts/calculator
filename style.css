@@ -8,39 +8,50 @@
 
 /* Main */
 
-.display{
+.displayScreen{
     display: flex;
-    justify-content: end;
-    align-items: end;
+    flex-direction: column;
     height: 75px;
-    width: 400px;
+    width: 335px;
     font-size: larger;
 }
 
-.buttons{
+.displayValueScreen, .storedValueScreen{
     display: flex;
+    justify-content: end;
+    align-items: end;
+    height: 50px;
+    width: 335px;
 }
 
-.grid, .row{
-    display: flex;
+.storedValueScreen{
+    height: 25px;
 }
 
-.digitButtons{
+.row,.column{
+    display: flex;
+    gap: 5px;
+}
+
+.column{
     flex-direction: column;
-    width: 300px;
-    height: 400px;
 }
 
+button {
+    font-size: 20px;
+    padding: 20px;
+    width: 80px;
+    height: 70px;
+}
+
+#clear, #equals {
+    width: 165px;
+}
 
 .tools, .operatorButtons{
     flex-direction: column;
     width: 100px;
 }
 
-button{
-    width: 100px;
-    height: 100px;
-    font-size: large;
-}
 
 /* Footer */
