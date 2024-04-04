@@ -6,6 +6,7 @@ let storedValue = null;
 let currentOperator = null;
 let operatorEntered = false;
 let equalsEntered = false;
+let decimalPointEntered = false;
 const displayValueScreen = document.querySelector(".displayValueScreen");
 const storedValueScreen = document.querySelector(".storedValueScreen");
 const operatorScreen = document.querySelector(".operatorScreen");
@@ -14,6 +15,13 @@ const digitButtons = document.querySelectorAll(".digit");
 digitButtons.forEach(
     (button) => {
         button.addEventListener("click",()=> {
+            if (button.classList.contains("decimalPoint")){
+                if (decimalPointEntered) return;
+                else {
+                    decimalPointEntered = true;
+                }
+            }
+
             if (operatorEntered) {
                 storedValue = displayValue;
                 displayValue = button.textContent
@@ -53,6 +61,7 @@ operatorButtons.forEach(
                 updateDisplay();
             }
 
+            decimalPointEntered = false;
             currentOperator = button.textContent;   
             operatorEntered = true;
         })
@@ -82,6 +91,7 @@ equalsButton.addEventListener("click", ()=> {
     displayValue = operate(+storedValue, +displayValue, currentOperator);
     storedValue = null;
     equalsEntered = true;
+    decimalPointEntered = false;
     currentOperator = null;
     updateDisplay();
 })
