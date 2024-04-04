@@ -76,10 +76,19 @@ button {
     width: 165px;
 }
 
+#equals{
+    background-color: #70AE98;
+}
+
+#clear{
+    background-color: #E58B88;
+}
+
+#delete{
+    background-color: #ECBE7A;
+}
+
 .tools, .operatorButtons{
     flex-direction: column;
     width: 100px;
 }
-
-
-/* Footer */
