@@ -4,28 +4,54 @@
     box-sizing: border-box;
 }
 
-/* Header */
-
-/* Main */
-
-.displayScreen{
+body{
     display: flex;
-    flex-direction: column;
-    height: 75px;
-    width: 335px;
-    font-size: larger;
+    justify-content: center;
+    align-items: center;
 }
 
-.displayValueScreen, .storedValueScreen{
+/* Main */
+.main{
+    padding: 200px;
+}
+
+.calculator{
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    width: fit-content;
+    background-color: #aaa;
+}
+
+.screen{
+    display: flex;
+    flex-direction: column;
+    height: 70px;
+    width: 335px;
+    padding: 10px;
+    margin-bottom: 5px;
+    font-size: larger;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: #eee;
+}
+
+.screen .row, .storedValueScreen{
     display: flex;
     justify-content: end;
     align-items: end;
-    height: 50px;
-    width: 335px;
+    width: 315px;
+    height: 30px;
+    font-size: 20px;
+}
+
+.screen .row{
+    justify-content: space-between;
 }
 
 .storedValueScreen{
-    height: 25px;
+    height: 20px;
+    font-size: 18px;
 }
 
 .row,.column{
@@ -42,6 +68,8 @@ button {
     padding: 20px;
     width: 80px;
     height: 70px;
+    border-radius: 5px;
+    border: 2px solid black;
 }
 
 #clear, #equals {

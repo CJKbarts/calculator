@@ -5,8 +5,10 @@ let displayValue = "";
 let storedValue = null;
 let currentOperator = null;
 let operatorEntered = false;
+let equalsEntered = false;
 const displayValueScreen = document.querySelector(".displayValueScreen");
 const storedValueScreen = document.querySelector(".storedValueScreen");
+const operatorScreen = document.querySelector(".operatorScreen");
 
 const digitButtons = document.querySelectorAll(".digit");
 digitButtons.forEach(
@@ -17,6 +19,12 @@ digitButtons.forEach(
                 displayValue = button.textContent
                 updateDisplay();
                 operatorEntered = false;
+            }
+
+            else if (equalsEntered){
+                displayValue = button.textContent;
+                updateDisplay();
+                equalsEntered = false;
             }
 
             else {
@@ -30,6 +38,7 @@ digitButtons.forEach(
 function updateDisplay(){
     displayValueScreen.textContent = displayValue;
     storedValueScreen.textContent = storedValue;
+    operatorScreen.textContent = currentOperator;
 }
 
 const operatorButtons = document.querySelectorAll(".operator");
@@ -72,6 +81,8 @@ const equalsButton = document.querySelector("#equals");
 equalsButton.addEventListener("click", ()=> {
     displayValue = operate(+storedValue, +displayValue, currentOperator);
     storedValue = null;
+    equalsEntered = true;
+    currentOperator = null;
     updateDisplay();
 })
 
