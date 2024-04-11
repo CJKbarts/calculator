@@ -54,6 +54,9 @@ operatorButtons.forEach(
     (button) => [
         button.addEventListener("click", ()=> {
             if (currentOperator === null) currentOperator = button.textContent;
+            else if (currentOperator != button.textContent){
+                document.getElementById(currentOperator).classList.remove("active")
+            }
 
             if (storedValue !== null) {
                 displayValue = operate(+storedValue, +displayValue, currentOperator);
@@ -62,7 +65,8 @@ operatorButtons.forEach(
             }
 
             decimalPointEntered = false;
-            currentOperator = button.textContent;   
+            currentOperator = button.textContent;
+            button.classList.add("active");
             operatorEntered = true;
         })
     ]
@@ -72,6 +76,7 @@ const clearButton = document.querySelector("#clear");
 clearButton.addEventListener("click", ()=> {
     storedValue = null;
     displayValue = '';
+    document.getElementById(currentOperator).classList.toggle("active");
     currentOperator = null;
     updateDisplay();
 })
@@ -92,6 +97,7 @@ equalsButton.addEventListener("click", ()=> {
     storedValue = null;
     equalsEntered = true;
     decimalPointEntered = false;
+    document.getElementById(currentOperator).classList.toggle("active");
     currentOperator = null;
     updateDisplay();
 })
