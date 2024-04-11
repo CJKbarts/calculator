@@ -74,12 +74,17 @@ operatorButtons.forEach(
 
 const clearButton = document.querySelector("#clear");
 clearButton.addEventListener("click", ()=> {
-    storedValue = null;
     displayValue = '';
-    document.getElementById(currentOperator).classList.toggle("active");
+    reset();
+})
+
+function reset(){
+    document.getElementById(currentOperator)?.classList?.toggle("active");
+    decimalPointEntered = false;
+    storedValue = null;
     currentOperator = null;
     updateDisplay();
-})
+}
 
 const deleteButton = document.querySelector("#delete");
 deleteButton.addEventListener("click", deleteDigit);
@@ -94,12 +99,8 @@ function deleteDigit(){
 const equalsButton = document.querySelector("#equals");
 equalsButton.addEventListener("click", ()=> {
     displayValue = operate(+storedValue, +displayValue, currentOperator);
-    storedValue = null;
+    reset();
     equalsEntered = true;
-    decimalPointEntered = false;
-    document.getElementById(currentOperator).classList.toggle("active");
-    currentOperator = null;
-    updateDisplay();
 })
 
 
